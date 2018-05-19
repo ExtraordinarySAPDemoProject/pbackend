@@ -1,0 +1,29 @@
+server:
+  port: 12306
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  instance:
+    hostname: localhost
+    instanceId: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10086/eureka/
+
+encrypt:
+  failOnError: true
+
+zuul:
+  routes:
+    user-service: /user/**
+    user-info-service: /userinfo/**
+    comment-service: /comment/**
+    project-service: /project/**
+    progress-service: /progress/**
+    task-service: /task/**
+    subtask-service: /subtask/**
+    schedule-service: /schedule/**
+    file-service: /file/**

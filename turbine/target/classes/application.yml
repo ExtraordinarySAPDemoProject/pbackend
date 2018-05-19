@@ -1,0 +1,24 @@
+server:
+  port: 12345
+
+spring:
+  application:
+    name: turbine
+
+eureka:
+  instance:
+    hostname: localhost
+    instanceId: ${eureka.instance.hostname}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10086/eureka/
+
+logging:
+  level:
+    org.springframework.cloud: 'INFO'
+
+turbine:
+  aggregator:
+    clusterConfig:
+  appConfig:
+  instanceUrlSuffix: /hystrix.stream
